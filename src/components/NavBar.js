@@ -1,20 +1,20 @@
 import React from 'react';
 import {Container, Nav, Navbar, NavLink} from "react-bootstrap";
+import {LOGIN_ROUTE, CURRENCY_ROUTE, TRENDS_ROUTE, HOME_ROUTE} from "../utils";
+import {Link} from "react-router-dom";
 
 const NavBar = () => {
 	return (
-	<div>
 		<Navbar bg="light" variant="light">
 			<Container>
-				<Navbar.Brand href="/">CryptoMir</Navbar.Brand>
+				<Navbar.Brand>CryptoMir</Navbar.Brand>
 				<Nav className="me-auto">
-					<Nav.Link href="/login">Логин</Nav.Link>
-					<Nav.Link href="/currency">Валюты</Nav.Link>
-					<Nav.Link href="/trends">Тренды</Nav.Link>
+					<Link className='nav-link' to={LOGIN_ROUTE}> Логин </Link>
+					<Link className='nav-link' to={CURRENCY_ROUTE}> Валюты </Link>
+					<Link className='nav-link' to={TRENDS_ROUTE}>Тренды</Link>
 				</Nav>
 			</Container>
 		</Navbar>
-	</div>
 	);
 };
 
