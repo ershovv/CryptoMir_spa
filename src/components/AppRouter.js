@@ -9,9 +9,7 @@ import {useDispatch, useSelector} from "react-redux";
 const AppRouter = () => {
 
 	const dispatch = useDispatch();
-	const isAuth  = useSelector(state => state.isAuth);
-
-	console.log(isAuth);
+	const isAuth  = useSelector(state => state.login.isAuth);
 
 	return (
 		isAuth ?
