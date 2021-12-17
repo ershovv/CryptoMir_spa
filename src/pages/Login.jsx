@@ -24,11 +24,9 @@ const Login = () => {
 
 	const handleNameChange = (ev) => {
 		setLogin(ev.target.value)
-		console.log(login);
 	}
 	const handlePasswordChange = (ev) => {
 		setPassword(ev.target.value)
-		console.log(password);
 	}
 
 	return (
