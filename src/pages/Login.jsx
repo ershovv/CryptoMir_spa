@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 const Login = () => {
 	const dispatch = useDispatch();
 	const isAuth = useSelector(state => state.login.isAuth);
+	const NAME = useSelector( state => state.login.name)
 	const [login, setLogin] = useState();
 	const [password, setPassword] = useState();
 
@@ -14,7 +15,11 @@ const Login = () => {
 			dispatch({type: "LOG_IN", name: login})
 		}
 		else
-			alert(login);
+			alert("Имя или пароль неверные");
+	}
+	const logOut = (ev) =>{
+		ev.preventDefault();
+		dispatch({type: "LOG_OUT", name: ""})
 	}
 
 	const handleNameChange = (ev) => {
@@ -29,7 +34,10 @@ const Login = () => {
 	return (
 		isAuth ?
 			<div>
-				WELCOME
+				<h1 className='align-content-between'>WELCOME, {NAME}</h1>
+				<Button onClick={(e) => logOut(e)} variant="primary" type="submit">
+					Выйти
+				</Button>
 			</div>
 		:
 		<div>
