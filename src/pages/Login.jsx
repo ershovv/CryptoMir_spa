@@ -5,7 +5,7 @@ const Login = () => {
 	return (
 		<div>
 			<Form>
-				<Form.Group className="mb-3" controlId="formBasicEmail">
+				<Form.Group className="mb-3" controlId="formBa">
 					<Form.Label>Логин</Form.Label>
 					<Form.Control type="login" placeholder="try Admin"/>
 				</Form.Group>
