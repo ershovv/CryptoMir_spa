@@ -15,7 +15,10 @@ const Login = () => {
 			dispatch({type: "LOG_IN", name: login})
 		}
 		else
+		{
 			alert("Имя или пароль неверные");
+		}
+
 	}
 	const logOut = (ev) =>{
 		ev.preventDefault();
@@ -33,7 +36,7 @@ const Login = () => {
 		isAuth ?
 			<div>
 				<h1 className='align-content-between'>WELCOME, {NAME}</h1>
-				<Button onClick={(e) => logOut(e)} variant="primary" type="submit">
+				<Button onClick={(e) => logOut(e)} variant="primary" type="button">
 					Выйти
 				</Button>
 			</div>
@@ -49,7 +52,7 @@ const Login = () => {
 					<Form.Label>Пароль</Form.Label>
 					<Form.Control onChange={e => handlePasswordChange(e)} type="password" placeholder="12*гхм*4" />
 				</Form.Group>
-				<Button onClick={(e) => logIn(e)} variant="primary" type="submit">
+				<Button onClick={(e) => logIn(e)} variant="primary" type="button">
 					Войти
 				</Button>
 			</Form>
