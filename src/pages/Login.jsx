@@ -1,7 +1,16 @@
 import React from 'react';
 import {Button, Form} from "react-bootstrap";
+import {useDispatch, useSelector} from "react-redux";
 
 const Login = () => {
+	const dispatch = useDispatch();
+	const isAuth = useSelector(state => state.isAuth);
+
+	const logIn = (ev) =>{
+		ev.preventDefault();
+		dispatch({type: "LOG_IN"})
+	}
+
 	return (
 		<div>
 			<Form>
@@ -14,7 +23,7 @@ const Login = () => {
 					<Form.Label>Пароль</Form.Label>
 					<Form.Control type="password" placeholder="12*гхм*4" />
 				</Form.Group>
-				<Button variant="primary" type="submit">
+				<Button onClick={(e) => logIn(e)} variant="primary" type="submit">
 					Войти
 				</Button>
 			</Form>

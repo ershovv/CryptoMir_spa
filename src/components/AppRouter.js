@@ -4,9 +4,15 @@ import Login from "../pages/Login";
 import Currency from "../pages/Currency";
 import Trends from "../pages/Trends";
 import Home from "../pages/Home";
+import {useDispatch, useSelector} from "react-redux";
 
 const AppRouter = () => {
-	const isAuth = true;
+
+	const dispatch = useDispatch();
+	const isAuth  = useSelector(state => state.isAuth);
+
+	console.log(isAuth);
+
 	return (
 		isAuth ?
 			<Routes>
