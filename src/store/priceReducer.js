@@ -10,15 +10,14 @@ export const priceReducer = (state = defaultState, action) => {
 	switch (action.type) {
 
 		case "UPDATE":
-			return {...state, data: action.data}
+			return {...state, data: action.data, history: [...state.history, action.data]}
 
 		case "CHOOSE_COIN":
 			return {...state, track_name: action.name, track_id: action.id}
 
 		case "GET_PRICE":
 		{
-			console.log(state.history)
-			return {...state, history: [...state.history, action.data]}
+			return {...state, history: state.history}
 		}
 
 		default:

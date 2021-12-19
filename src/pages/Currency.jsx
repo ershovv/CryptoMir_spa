@@ -11,7 +11,6 @@ const Currency = () => {
 	return (
 		<div className='container'>
 			<div className='row'>
-				{/*<CryptoBlock data={data} />*/}
 				{data.map( (val) => (
 					<CryptoBlock key={val.id} data={val}/>
 				))}
