@@ -26,7 +26,7 @@ const Trends = () => {
 			},
 			title: {
 				display: true,
-				text: 'Crypto',
+				text: 'Crypto / USD',
 			},
 		},
 	};
@@ -34,19 +34,18 @@ const Trends = () => {
 
 	const track = useSelector(state => state.price.track_id)
 	const history = useSelector(state => state.price.history)
+	const dispatch = useDispatch()
 
-	console.log(history);
+	if (history.length == 100)
+	{
+		history.shift()
+		dispatch({type: 'CLEAR', data: history})
+	}
 
 
-	const labels = [...Array(history.length).keys()];
-	console.log(labels);
-
-	// const check_id = (item) => {
-	// 	console.log(item)
-	// }
-
-	const track_price = history.map((ar) => ar.find(item => item.id == track))
-	const price = track_price.map(ob => ob.current_price)
+	const labels = track ? [...Array(history.length).keys()] : [];
+	const track_price = track ? history.map((ar) => ar.find(item => item.id == track)) : [];
+	const price = track ? track_price.map(ob => ob.current_price) : [];
 	// console.log(price)
 
 	const data = {
@@ -54,7 +53,7 @@ const Trends = () => {
 		datasets: [
 			{
 				label: (track ? track : 'Выберете валюту во влкадке "Валюты"'),
-				data: price,
+				data: (track ? price : []),
 				borderColor: 'rgb(53, 162, 235)',
 				backgroundColor: 'rgba(53, 162, 235, 0.5)',
 			},

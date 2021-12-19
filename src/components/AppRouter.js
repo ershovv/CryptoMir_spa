@@ -4,11 +4,10 @@ import Login from "../pages/Login";
 import Currency from "../pages/Currency";
 import Trends from "../pages/Trends";
 import Home from "../pages/Home";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 
 const AppRouter = () => {
 
-	const dispatch = useDispatch();
 	const isAuth  = useSelector(state => state.login.isAuth);
 
 	return (
