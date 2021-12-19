@@ -2,6 +2,8 @@ import React from 'react';
 import {Chart, Line} from 'react-chartjs-2';
 import {CategoryScale, Chart as ChartJS, Legend, LinearScale, LineElement, PointElement, Title} from "chart.js";
 import faker from 'faker';
+import {useDispatch, useSelector} from "react-redux";
+import axios from "axios";
 
 const Trends = () => {
 
@@ -28,14 +30,32 @@ const Trends = () => {
 		},
 	};
 
-	const labels = Array.apply(1, {length: 100}).map(Number.call, Number)
+
+	const track = useSelector(state => state.price.track_id)
+	const history = useSelector(state => state.price.history)
+
+	const dispatch = useDispatch();
+
+	async function get_price(coin) {
+		const response = await axios.get('https://api.coingecko.com/api/v3/coins/' + coin)
+			.then(response => (dispatch({type: 'GET_PRICE', data: response.data})))
+			.catch(error => console.log(error))
+	}
+	//
+	// if (track)
+	// {
+	// 	get_price(track);
+	// }
+
+	const labels = [1, 2, 3, 4, 5, 6];
+		// Array.apply(1, {length: 100}).map(Number.call, Number)
 
 	const data = {
 		labels,
 		datasets: [
 			{
-				label: 'Dataset 2',
-				data: labels.map(() => faker.datatype.number({ min: -100000, max: 100000 })),
+				label: (track ? track : 'Выберете валюту во влкадке "Валюты"'),
+				data: history.map((prise) => (prise.market_data.current_price.rub)),
 				borderColor: 'rgb(53, 162, 235)',
 				backgroundColor: 'rgba(53, 162, 235, 0.5)',
 			},

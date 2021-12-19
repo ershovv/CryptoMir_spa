@@ -50,7 +50,7 @@ const Login = () => {
 
 				<Form.Group className="mb-3" controlId="formBasicPassword">
 					<Form.Label>Пароль</Form.Label>
-					<Form.Control onChange={e => handlePasswordChange(e)} type="password" placeholder="12*гхм*4" />
+					<Form.Control onChange={e => handlePasswordChange(e)} type="password" placeholder="12*4" />
 				</Form.Group>
 				<Button onClick={(e) => logIn(e)} variant="primary" type="button">
 					Войти
