@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/CryptoMir_spa/static/css/main.1a8a0596.css",
+    "main.js": "/CryptoMir_spa/static/js/main.80edc05f.js",
+    "index.html": "/CryptoMir_spa/index.html",
+    "main.1a8a0596.css.map": "/CryptoMir_spa/static/css/main.1a8a0596.css.map",
+    "main.80edc05f.js.map": "/CryptoMir_spa/static/js/main.80edc05f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1a8a0596.css",
+    "static/js/main.80edc05f.js"
+  ]
+}
