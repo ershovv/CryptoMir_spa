@@ -37,6 +37,9 @@
       "react-app/jest"
     ]
   },
+  "dependencies": {
+    "node-forge": ">=1.0.0"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
